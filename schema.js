@@ -7,15 +7,33 @@ module.exports.ListingSchema = joi.object({
         location: joi.string().required(),
         country: joi.string().required(),
         price: joi.number().required().min(0),
+
         image: joi.object({
             url: joi.string().allow("", null)
-        }).optional()
+        }).optional(),
+
+        category: joi.string()
+            .valid(
+                "Trending",
+                "Rooms",
+                "Iconic City",
+                "Mountains",
+                "Castles",
+                "Amazing Pools",
+                "Camping",
+                "Farms",
+                "Arctic",
+                "Dome",
+                "Boats"
+            )
+            .required()
+
     }).required()
-})
+});
 
 module.exports.reviewSchema = joi.object({
     review: joi.object({
         rating: joi.number().required().min(1).max(5),
         comment: joi.string().required(),
     }).required()
-})
+});

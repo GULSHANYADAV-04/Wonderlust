@@ -1,63 +1,60 @@
 <% layout("/layouts/boilerplate") %>
 
-<%= success %>
-
 <div id="filters">
-
-  <div class="filter">
+<a href="/listings?search=<%= search || '' %>&category=Trending" class="filter">
     <div><i class="fa-solid fa-fire"></i></div>
     <p>Trending</p>
-  </div>
+</a>
 
-  <div class="filter">
+<a href="/listings?search=<%= search || '' %>&category=Rooms" class="filter">
     <div><i class="fa-solid fa-bed"></i></div>
     <p>Rooms</p>
-  </div>
+</a>
 
-  <div class="filter">
-    <div><i class="fa-solid fa-mountain-city"></i></div>
+<a href="/listings?search=<%= search || '' %>&category=Iconic City" class="filter">
+    <div><i class="fa-solid fa-city"></i></div>
     <p>Iconic City</p>
-  </div>
+</a>
 
-  <div class="filter">
+<a href="/listings?search=<%= search || '' %>&category=Mountains" class="filter">
     <div><i class="fa-solid fa-mountain"></i></div>
     <p>Mountains</p>
-  </div>
+</a>
 
-  <div class="filter">
-    <div><i class="fa-brands fa-chromecast"></i></div>
+<a href="/listings?search=<%= search || '' %>&category=Castles" class="filter">
+    <div><i class="fa-brands fa-fort-awesome"></i></div>
     <p>Castles</p>
-  </div>
+</a>
 
-  <div class="filter">
-    <div><i class="fa-solid fa-person-swimming"></i></div>
+<a href="/listings?search=<%= search || '' %>&category=Amazing Pools" class="filter">
+    <div><i class="fa-solid fa-water-ladder"></i></div>
     <p>Amazing Pools</p>
-  </div>
+</a>
 
-  <div class="filter">
-    <div><i class="fa-solid fa-caravan"></i></div>
+<a href="/listings?search=<%= search || '' %>&category=Camping" class="filter">
+    <div><i class="fa-solid fa-campground"></i></div>
     <p>Camping</p>
-  </div>
+</a>
 
-  <div class="filter">
+<a href="/listings?search=<%= search || '' %>&category=Farms" class="filter">
     <div><i class="fa-solid fa-tractor"></i></div>
     <p>Farms</p>
-  </div>
+</a>
 
-  <div class="filter">
-    <div><i class="fa-solid fa-igloo"></i></div>
+<a href="/listings?search=<%= search || '' %>&category=Arctic" class="filter">
+    <div><i class="fa-regular fa-snowflake"></i></div>
     <p>Arctic</p>
-  </div>
+</a>
 
-  <div class="filter">
-    <div><i class="fa-solid fa-landmark-dome"></i></div>
+<a href="/listings?search=<%= search || '' %>&category=Dome" class="filter">
+    <div><i class="fa-solid fa-igloo"></i></div>
     <p>Dome</p>
-  </div>
+</a>
 
-  <div class="filter">
-    <div><i class="fa-solid fa-sailboat"></i></div>
+<a href="/listings?search=<%= search || '' %>&category=Boats" class="filter">
+    <div><i class="fa-solid fa-ship"></i></div>
     <p>Boats</p>
-  </div>
+</a>
 
   <div class="tax-toggle">
     <div class="form-check form-switch">
@@ -77,7 +74,7 @@
 
 </div>
 
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mt-3">
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-3">
 
 <% for(let listing of allListings){ %>
 

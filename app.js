@@ -1,5 +1,5 @@
-if(process.env.NODE_ENV != "production"){
-require('dotenv').config()
+if (process.env.NODE_ENV != "production") {
+  require('dotenv').config()
 }
 const express = require("express");
 const app = express();
@@ -39,16 +39,16 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 // console.log(MongoStore);
 
-const store= MongoStore.create({
-  mongoUrl :dburl,
-  crypto:{
-    secret:process.env.SECRET,
+const store = MongoStore.create({
+  mongoUrl: dburl,
+  crypto: {
+    secret: process.env.SECRET,
   },
-  touchAfter:24*3600,
+  touchAfter: 24 * 3600,
 })
 
-store.on("error",(err)=>{
-  console.log("error in mongo session ",err);
+store.on("error", (err) => {
+  console.log("error in mongo session ", err);
 })
 const sessionOption = {
   store,
@@ -63,7 +63,7 @@ const sessionOption = {
 };
 
 app.get("/", (req, res) => {
-    res.redirect("/listings");
+  res.redirect("/listings");
 });
 
 
@@ -72,17 +72,21 @@ app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
- passport.use(new LocalStrategy(User.authenticate()));
+passport.use(new LocalStrategy(User.authenticate()));
 
- passport.serializeUser(User.serializeUser());
+passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use((req,res,next)=>{
-  res.locals.success= req.flash("success");
-   res.locals.error= req.flash("error");
-   res.locals.currUser = req.user;
-  next();
-})
+app.use((req, res, next) => {
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    res.locals.currUser = req.user;
+
+    res.locals.search = req.query.search || "";
+    res.locals.category = req.query.category || "";
+
+    next();
+});
 
 // app.get("/demouser", async(req,res)=>{
 //   let fakeUser = new User({

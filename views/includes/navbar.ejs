@@ -30,22 +30,28 @@
 
       <!-- Search -->
       <form
-        class="d-flex flex-column flex-lg-row search-form mx-auto my-3 my-lg-0"
-        action="/listings"
-        method="GET">
+    class="d-flex flex-column flex-lg-row search-form mx-auto my-3 my-lg-0"
+    action="/listings"
+    method="GET">
 
-        <input
-          class="form-control search-in me-lg-2 mb-2 mb-lg-0"
-          type="search"
-          name="search"
-          placeholder="Search destinations">
+    <input
+        class="form-control search-in me-lg-2 mb-2 mb-lg-0"
+        type="search"
+        name="search"
+        value="<%= search || '' %>"
+        placeholder="Search destinations">
 
-        <button class="btn btn-search" type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          Search
-        </button>
+    <input
+        type="hidden"
+        name="category"
+        value="<%= category || '' %>">
 
-      </form>
+    <button class="btn btn-search" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        Search
+    </button>
+
+</form>
 
       <!-- Right -->
       <ul class="navbar-nav ms-lg-auto">
